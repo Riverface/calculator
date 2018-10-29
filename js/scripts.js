@@ -1,5 +1,11 @@
 $(document).ready(function(){
+      $("#q2").hide();
+      $("#q3").hide();
+      $("#q4").hide();
+
+            var qIterator = 0;
   $("form#calc").click(function(){
+
     var num1 = parseInt($("#input1").val());
     var num2 = parseInt($("#input2").val());
     var op = $("input:radio[name=operator]:checked").val();
@@ -25,7 +31,36 @@ $(document).ready(function(){
     $("#output").text(result);
 
   });
-    $("form#calc").click(function(){
+    $(".radioform #opt1").click(function(){
 
+      qIterator++;
+      if(qIterator == 1){
+        switch () {
+          case expression:
+            
+            break;
+          default:
+
+        }
+      $("#q1").hide();
+      $("#q2").show();
+    }
         });
+
+        $(".radioform #opt2").click(function(){
+
+          qIterator++;
+          if(qIterator == 2)
+          $("#q2").hide();
+          $("#q3").show();
+
+            });
+            $(".radioform #opt3").click(function(){
+
+              qIterator++;
+              if(qIterator == 2)
+              $("#q2").hide();
+              $("#q3").show();
+
+                });
 });
