@@ -1,11 +1,19 @@
+var qIterator = 0;
+var opt1ct = 0;
+var opt2ct = 0;
+var opt3ct = 0;
+
 $(document).ready(function(){
-      $("#q2").hide();
-      $("#q3").hide();
-      $("#q4").hide();
+  $("#q2").hide();
+  $("#q3").hide();
+  $("#q4").hide();
+  $(".end").hide();
+  $(".end1").hide();
+    $(".end2").hide();
+      $(".end3").hide();
+        $(".end4").hide();
 
-            var qIterator = 0;
   $("form#calc").click(function(){
-
     var num1 = parseInt($("#input1").val());
     var num2 = parseInt($("#input2").val());
     var op = $("input:radio[name=operator]:checked").val();
@@ -31,36 +39,114 @@ $(document).ready(function(){
     $("#output").text(result);
 
   });
-    $(".radioform #opt1").click(function(){
+  $(".opt1").click(function(){
 
-      qIterator++;
-      if(qIterator == 1){
-        switch () {
-          case expression:
-            
-            break;
-          default:
-
-        }
+    qIterator++;
+    console.log(qIterator);
+    switch (qIterator) {
+      case 1:
       $("#q1").hide();
       $("#q2").show();
+      opt1ct++;
+      break;
+      case 2:
+      $("#q2").hide();
+      $("#q3").show();
+      opt1ct++;
+      break;
+      case 3:
+      $("#q3").hide();
+      $("#q4").show();
+      opt1ct++;
+      break;
+      case 4:
+      $("#q4").hide();
+      $(".end").show();
+      whichone();
     }
-        });
+    console.log(qIterator);
 
-        $(".radioform #opt2").click(function(){
+  });
 
-          qIterator++;
-          if(qIterator == 2)
-          $("#q2").hide();
-          $("#q3").show();
+  $(".opt2").click(function(){
 
-            });
-            $(".radioform #opt3").click(function(){
 
-              qIterator++;
-              if(qIterator == 2)
-              $("#q2").hide();
-              $("#q3").show();
+    qIterator++;
 
-                });
+    switch (qIterator) {
+      case 1:
+      $("#q1").hide();
+      $("#q2").show();
+      opt2ct++;
+      break;
+      case 2:
+      $("#q2").hide();
+      $("#q3").show();
+      opt2ct++;
+      break;
+      case 3:
+      $("#q3").hide();
+      $("#q4").show();
+      opt2ct++;
+      break;
+      case 4:
+      $("#q4").hide();
+      $(".end").show();
+      whichone();
+      break;
+    }
+    console.log(qIterator);
+  });
+  $(".opt3").click(function(){
+    qIterator++;
+    console.log(qIterator);
+    switch (qIterator) {
+      case 1:
+      $("#q1").hide();
+      $("#q2").show();
+      opt3ct++;
+      break;
+
+      case 2:
+      $("#q2").hide();
+      $("#q3").show();
+      opt3ct++;
+      break;
+
+      case 3:
+      $("#q3").hide();
+      $("#q4").show();
+      opt3ct++;
+      break;
+
+      case 4:
+      $("#q4").hide();
+      $(".end").show();
+      whichone();
+      break;
+      console.log(qIterator);
+    }
+
+  });
 });
+function whichone()
+{
+if((opt2ct > opt3ct) && (opt2ct > opt1ct))
+{
+$(".end2").show();
+console.log(opt2ct +"" + opt3ct + "" + opt1ct);
+}
+else if((opt3ct > opt1ct) && (opt3ct > opt2ct))
+{
+$(".end1").show();
+console.log(opt2ct +"" + opt3ct + "" + opt1ct);
+}
+else if((opt3ct > opt1ct) && (opt1ct > opt2ct))
+{
+$(".end3").show();
+console.log(opt2ct +"" + opt3ct + "" + opt1ct);
+}
+else {
+  $(".end4").show();
+}
+}
